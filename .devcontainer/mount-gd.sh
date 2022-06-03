@@ -18,7 +18,7 @@ if test -n "${GDFUSE_SA}" ; then
         -serviceaccountpath "${HOME}/gd-sa-cred.json" \
         -serviceaccountuser "$(jq -r ".client_email" < "${HOME}/gd-sa-cred.json")" \
         "${1}"
-elif test -n "${GDFUSE_CONFIG}"  && test -n "${GDFUSE_CONFIG}" ; then
+elif test -n "${GDFUSE_CONFIG}"  && test -n "${GDFUSE_STATE}" ; then
     test ! -d "${HOME}/.gdfuse/${LABEL}" && mkdir -p "${HOME}/.gdfuse/${LABEL}"
     echo "${GDFUSE_CONFIG}" > "${HOME}/.gdfuse/${LABEL}/config"
     echo "${GDFUSE_STATE}" > "${HOME}/.gdfuse/${LABEL}/state"
