@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y software-properties-common \
 
 # setup gdfuse in user
 COPY --chown="${USERNAME}" --chmod=755 mount-gd.sh "/home/${USERNAME}/mount-gd.sh"
-USER vscode
+USER "${USERNAME}" 
 RUN mkdir -p "/home/${USERNAME}/gdrive" \
     && test -d "/home/${USERNAME}/.local/bin" || mkdir -p "/home/${USERNAME}/.local/bin" \
     && mv "/home/${USERNAME}/mount-gd.sh" "/home/${USERNAME}/.local/bin/mount-gd.sh"
